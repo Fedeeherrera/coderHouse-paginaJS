@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#body {
+    background-color: rgb(34,74,95);
+}
+
+#header {
+    height: 50px;
+}
+
+#h2 {
+    margin-bottom: 25px;
+}
+
+#btns1, 
+#btns2,
+#img2,
+#div__info,
+#footer {
+    margin-top: 20px;
+}
+
+button {
+    height: 40px;
+    width: 160px;
+}
+
+#h3Footer {
+    font-size: 1.35rem;
+}
+
+label {
+    font-size: 25px;
+}
+
+#inptCheck {
+    width: 20px;
+    height: 45px;
+}

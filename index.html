@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1ER PRE-ENTREGA - Federico Herrera</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body id="body">
+    <header id="header" class="d-flex justify-content-center">
+      <h1>Aca vas a elegir tu viaje</h1>
+    </header>
+    <main>
+      <h2 id="h2" class="d-flex justify-content-center">
+        Agrega al carrito el viaje que quieras
+      </h2>
+      <!--imagenes donde va a estar la informacion de los viajes.-->
+      <section id="section1">
+        <div class="d-flex justify-content-around">
+          <img src="./images/amsterdamPaisesBajos.jpg" alt="" />
+          <img src="./images/borabora.jpg" alt="" />
+          <img src="./images/buenosAiresARG.png" alt="" />
+        </div>
+        <div id="btns1" class="d-flex justify-content-around">
+          <button>Seleccionar destino</button>
+          <button>Seleccionar destino</button>
+          <button>Seleccionar destino</button>
+        </div>
+      </section>
+      <section id="section2">
+        <div id="img2" class="d-flex justify-content-around">
+          <img src="./images/cancunMexico.jpg" alt="" />
+          <img src="./images/hawaiEEUU.jpg" alt="" />
+          <img src="./images/montevideoUruguay.jpg" alt="" />
+        </div>
+        <div id="btns2" class="d-flex justify-content-around">
+          <button>Seleccionar destino</button>
+          <button>Seleccionar destino</button>
+          <button>Seleccionar destino</button>
+        </div>
+      </section>
+      <div id="div__info" class="d-flex justify-content-evenly">
+        <h3>DESTINO: <span id="destino">XXXX</span></h3>
+        <h3>PASAJEROS: <span id="pasajeros">XXXX</span></h3>
+        <h3>DESCUENTO: <span id="descuento">XXXX</span></h3>
+      </div>
+      <div id="div__btns" class="d-flex justify-content-evenly">
+        <button id="btnCalcular">Calcular Precio</button>
+        <button id="btnLimpiar">Limpiar carrito</button>
+      </div>
+    </main>
+    <footer id="footer" class="d-flex justify-content-center">
+      <h3 id="h3Footer">FOOTER - DERECHOS DE AUTOR FEDERICO HERRERA 2022 - CODER HOUSE</h3>
+    </footer>
+    <div class="d-flex justify-content-evenly">
+      <label>Ingrese la cantidad de pasajeros <input type="number" id="pasajeros" name="pasajeros" /></label> <br>
+      <label>Ingrese la cantidad de dias <input type="number" id="dias" name="dias" /></label> <br>
+      <input type="checkbox" id="inptCheck">
+      <button id="btnCalcularInput">CALCULAR</button>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

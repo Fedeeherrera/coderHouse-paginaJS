@@ -1,128 +1,105 @@
-console.log("Todo esta funcionando correctamente");
-
 //definicion de variables
-const rioDeJaneiro = {
-  nombre: "Rio De Janeiro",
-  precio: 3200,
-};
-const londres = {
-  nombre: "Londres",
-  precio: 4300,
-};
-const boraBora = {
-  nombre: "Bora Bora",
-  precio: 5000,
-};
-
-const valoresUtilizables = {
-  impuesto: 0.15,
-  descuentoSocio: 0.2,
-};
-
-let valorMomentaneo = 0;
-
-//Elije el destino
-let destinoElegido = prompt(`Elija el destino deseado:
-1) Rio de Janeiro
-2) Londres
-3) Bora Bora
-4) Proximamente...
-`);
-
-//Funcion calcular valor con lo ingresado
-function calcularValorMomentaneo(precio, pasajeros, dias) {
-  valorMomentaneo = precio * pasajeros * dias;
-}
-
-//codigo
-
-if (destinoElegido == 1 || destinoElegido == 2 || destinoElegido == 3) {
-  let pasajeros = Number(prompt(`Cuantos pasajeros van a viajar?`));
-  let cantidadDias = Number(prompt(`Elija cantidad de dias:`));
-  let esSocio = Number(
-    prompt(`Es Socio de la pagina?
-    1) SI
-    2) NO`)
-  );
-  switch (destinoElegido) {
-    case "1":
-      calcularValorMomentaneo(rioDeJaneiro.precio, pasajeros, cantidadDias);
-      break;
-
-    case "2":
-      calcularValorMomentaneo(londres.precio, pasajeros, cantidadDias);
-      break;
-
-    case "3":
-      calcularValorMomentaneo(boraBora.precio, pasajeros, cantidadDias);
-      break;
-    default:
-      alert("El valor ingresado no es valido");
-  }
-  let valorFinal =
-    valorMomentaneo * valoresUtilizables.impuesto + valorMomentaneo;
-  if (esSocio == 1) {
-    valorFinal = valorFinal - valorFinal * valoresUtilizables.descuentoSocio;
-    alert(
-      `Para calcular el valor de tu viaje presiona CLICK sobre el boton "Calcular precio"`
-    );
-  } else {
-    alert(
-      `El precio de su viaje con impuestos sin descuento es $${valorFinal}`
-    );
-  }
-  if (Number(destinoElegido) === 1) {
-    let destino = document.getElementById("destino");
-    destino.innerHTML = "Rio de Janeiro";
-  } else if (Number(destinoElegido) === 2) {
-    let destino = document.getElementById("destino");
-    destino.innerHTML = "Londres";
-  } else {
-    let destino = document.getElementById("destino");
-    destino.innerHTML = "Bora Bora";
-  }
-
-  if (pasajeros > 0) {
-    let pasajeross = document.getElementById("pasajeros");
-    pasajeross.innerHTML = pasajeros;
-  }
-  
-  if (esSocio === 1) {
-    let descuento = document.getElementById("descuento");
-    descuento.innerHTML = "Si, es socio";
-  } else {
-    let descuento = document.getElementById("descuento");
-    descuento.innerHTML = "No, no es socio";
-  }
-  let boton = document.getElementById("btnCalcular");
-  boton.addEventListener("click", () => {
-    alert(`El precio de tu viaje es $${valorFinal}`);
-  });
-} else {
-  alert("ATENCION, EL NUMERO INGRESADO NO ES VALIDO!!!");
-}
-
-
 let descuento = document.getElementById("descuento");
 let pasajeross = document.getElementById("pasajeros");
 let destino = document.getElementById("destino");
+let dias = document.getElementById("spanDias");
 let btnLimpiar = document.getElementById("btnLimpiar");
+let botonInput = document.getElementById("botonInput");
+let inputPasajeros = document.getElementById("pasajerosInput");
+let inputDias = document.getElementById("dias");
+let amsterdamBtn = document.getElementById("amsterdamBtn");
+let boraBoraBtn = document.getElementById("boraBoraBtn");
+let buenosAiresBtn = document.getElementById("buenosAiresBtn");
+let cancunBtn = document.getElementById("cancunBtn");
+let hawaiBtn = document.getElementById("hawaiBtn");
+let montevideoBtn = document.getElementById("montevideoBtn");
+let precio = 0;
+
+const amsterdam = {
+  nombre: "Amsterdam",
+  precio: 3500,
+};
+const boraBora = {
+  nombre: "Bora Bora",
+  precio: 3000,
+};
+const buenosAires = {
+  nombre: "Buenos Aires",
+  precio: 2500,
+};
+const cancun = {
+  nombre: "Cancun",
+  precio: 3700,
+};
+const hawai = {
+  nombre: "Hawai",
+  precio: 4200,
+};
+const montevideo = {
+  nombre: "Montevideo",
+  precio: 4700,
+};
+
+const valoresUtilizables = {
+  impuesto: 1.15,
+  descuentoSocio: 0.2,
+};
+
 btnLimpiar.addEventListener("click", () => {
-  if(descuento != null){
-    descuento.remove();
-    pasajeross.remove();
-    destino.remove();
-  }
+  pasajeross.innerHTML = "";
+  destino.innerHTML = "";
+  dias.innerHTML = "";
+  precio = 0;
 });
 
-
-
-
-let botonInput = document.getElementById("btnCalcularInput");
-let inputPasajeros = document.getElementById("pasajeros");
-let inputDias = document.getElementById("dias");
+amsterdamBtn.addEventListener("click", () => {
+  precio = 3500;
+  destino.innerText = "Amsterdam";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Amsterdam.");
+});
+boraBoraBtn.addEventListener("click", () => {
+  precio = 3000;
+  destino.innerText = "Bora Bora";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Bora Bora.");
+});
+buenosAiresBtn.addEventListener("click", () => {
+  precio = 2500;
+  destino.innerText = "Buenos Aires";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Buenos Aires.");
+});
+cancunBtn.addEventListener("click", () => {
+  precio = 3700;
+  destino.innerText = "Cancun";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Cancun.");
+});
+hawaiBtn.addEventListener("click", () => {
+  precio = 4200;
+  destino.innerText = "Hawai";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Hawai.");
+});
+montevideoBtn.addEventListener("click", () => {
+  precio = 4700;
+  destino.innerText = "Montevideo";
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+  alert("Ha seleccionado Montevideo.");
+});
 
 botonInput.addEventListener("click", () => {
-  console.log(Number(inputPasajeros.value));
-  console.log(Number(inputDias.value));
+  if (inputPasajeros.value == 0 || inputDias.value == 0 || precio == 0) {
+    alert("Ingrese bien los datos");
+  } else {
+    let total = precio * inputPasajeros.value * inputDias.value * 1.21;
+    alert(`El total es $${total}`);
+  }
 });

@@ -19,9 +19,11 @@
       <h1>Aca vas a elegir tu viaje</h1>
     </header>
     <main>
-      <h2 id="h2" class="d-flex justify-content-center">
-        Agrega al carrito el viaje que quieras
-      </h2>
+
+      <div class="d-flex justify-content-evenly div_inputs">
+        <label> Pasajeros <input type="number" id="pasajerosInput" name="pasajerosInput" /></label> <br>
+        <label> Dias <input type="number" id="dias" name="dias" /></label> <br>
+      </div>
       <!--imagenes donde va a estar la informacion de los viajes.-->
       <section id="section1">
         <div class="d-flex justify-content-around">
@@ -30,9 +32,9 @@
           <img src="./images/buenosAiresARG.png" alt="" />
         </div>
         <div id="btns1" class="d-flex justify-content-around">
-          <button>Seleccionar destino</button>
-          <button>Seleccionar destino</button>
-          <button>Seleccionar destino</button>
+          <button id="amsterdamBtn">Amsterdam</button>
+          <button id="boraBoraBtn">Bora Bora</button>
+          <button id="buenosAiresBtn">Buenos Aires</button>
         </div>
       </section>
       <section id="section2">
@@ -42,31 +44,21 @@
           <img src="./images/montevideoUruguay.jpg" alt="" />
         </div>
         <div id="btns2" class="d-flex justify-content-around">
-          <button>Seleccionar destino</button>
-          <button>Seleccionar destino</button>
-          <button>Seleccionar destino</button>
+          <button id="cancunBtn">Cancun</button>
+          <button id="hawaiBtn">Hawai</button>
+          <button id="montevideoBtn">Montevideo</button>
         </div>
       </section>
       <div id="div__info" class="d-flex justify-content-evenly">
         <h3>DESTINO: <span id="destino">XXXX</span></h3>
         <h3>PASAJEROS: <span id="pasajeros">XXXX</span></h3>
-        <h3>DESCUENTO: <span id="descuento">XXXX</span></h3>
+        <h3>DIAS: <span id="spanDias">XXXX</span></h3>
       </div>
       <div id="div__btns" class="d-flex justify-content-evenly">
-        <button id="btnCalcular">Calcular Precio</button>
+        <button id="botonInput">Calcular Precio</button> 
         <button id="btnLimpiar">Limpiar carrito</button>
       </div>
     </main>
-    <footer id="footer" class="d-flex justify-content-center">
-      <h3 id="h3Footer">FOOTER - DERECHOS DE AUTOR FEDERICO HERRERA 2022 - CODER HOUSE</h3>
-    </footer>
-    <div class="d-flex justify-content-evenly">
-      <label>Ingrese la cantidad de pasajeros <input type="number" id="pasajeros" name="pasajeros" /></label> <br>
-      <label>Ingrese la cantidad de dias <input type="number" id="dias" name="dias" /></label> <br>
-      <input type="checkbox" id="inptCheck">
-      <button id="btnCalcularInput">CALCULAR</button>
-    </div>
-
     <script src="./js/script.js"></script>
   </body>
 </html>

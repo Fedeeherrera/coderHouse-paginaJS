@@ -9,12 +9,10 @@
 }
 
 #header {
-    height: 50px;
+    height: 80px;
 }
 
-#h2 {
-    margin-bottom: 25px;
-}
+
 
 #btns1, 
 #btns2,
@@ -40,4 +38,13 @@ label {
 #inptCheck {
     width: 20px;
     height: 45px;
+}
+
+.div_inputs {
+    margin-bottom: 20px;
+}
+
+#btnLimpiar,
+#botonInput {
+    margin-top: 10px;
 }

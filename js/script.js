@@ -124,7 +124,7 @@ montevideoBtn.addEventListener("click", () => {
 });
 
 botonInput.addEventListener("click", () => {
-  if (inputPasajeros.value == 0 || inputDias.value == 0) {
+  if (inputPasajeros.value <= 0 || inputDias.value <= 0) {
     alert("Ingrese bien los datos");
   } else if( precio <= 0) {
     alert("Seleccione un destino")

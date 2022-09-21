@@ -1,5 +1,4 @@
 //definicion de variables
-let descuento = document.getElementById("descuento");
 let pasajeross = document.getElementById("pasajeros");
 let destino = document.getElementById("destino");
 let dias = document.getElementById("spanDias");
@@ -13,8 +12,12 @@ let buenosAiresBtn = document.getElementById("buenosAiresBtn");
 let cancunBtn = document.getElementById("cancunBtn");
 let hawaiBtn = document.getElementById("hawaiBtn");
 let montevideoBtn = document.getElementById("montevideoBtn");
+let destinoElegido = "";
+let cantidadDias = 0;
+let cantidadPasajeros = 0;
 let precio = 0;
 
+//definicion de constantes
 const amsterdam = {
   nombre: "Amsterdam",
   precio: 3500,
@@ -45,61 +48,92 @@ const valoresUtilizables = {
   descuentoSocio: 0.2,
 };
 
+function diasPasajeros(){
+  pasajeross.innerText = inputPasajeros.value;
+  dias.innerText = inputDias.value;
+}
+
 btnLimpiar.addEventListener("click", () => {
   pasajeross.innerHTML = "";
   destino.innerHTML = "";
   dias.innerHTML = "";
+  pasajerosInput.value = "";
+  inputDias.value = "";
   precio = 0;
+  localStorage.clear();
 });
 
 amsterdamBtn.addEventListener("click", () => {
-  precio = 3500;
-  destino.innerText = "Amsterdam";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = amsterdam.precio;
+  destino.innerText = amsterdam.nombre;
+  diasPasajeros();
+  destinoElegido = amsterdam.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
   alert("Ha seleccionado Amsterdam.");
 });
+
 boraBoraBtn.addEventListener("click", () => {
-  precio = 3000;
-  destino.innerText = "Bora Bora";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = boraBora.precio;
+  destino.innerText = boraBora.nombre;
+  diasPasajeros();
+  destinoElegido = boraBora.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value; 
   alert("Ha seleccionado Bora Bora.");
 });
+
 buenosAiresBtn.addEventListener("click", () => {
-  precio = 2500;
-  destino.innerText = "Buenos Aires";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = buenosAires.precio;
+  destino.innerText = buenosAires.nombre;
+  diasPasajeros();
+  destinoElegido = buenosAires.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
   alert("Ha seleccionado Buenos Aires.");
 });
+
 cancunBtn.addEventListener("click", () => {
-  precio = 3700;
-  destino.innerText = "Cancun";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = cancun.precio;
+  destino.innerText = cancun.nombre;
+  diasPasajeros();
+  destinoElegido = cancun.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
   alert("Ha seleccionado Cancun.");
 });
+
 hawaiBtn.addEventListener("click", () => {
-  precio = 4200;
-  destino.innerText = "Hawai";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = hawai.precio;
+  destino.innerText = hawai.nombre;
+  diasPasajeros();
+  destinoElegido = hawai.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
   alert("Ha seleccionado Hawai.");
 });
+
 montevideoBtn.addEventListener("click", () => {
-  precio = 4700;
-  destino.innerText = "Montevideo";
-  pasajeross.innerText = inputPasajeros.value;
-  dias.innerText = inputDias.value;
+  precio = montevideo.precio;
+  destino.innerText = montevideo.nombre;
+  diasPasajeros();
+  destinoElegido = montevideo.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
   alert("Ha seleccionado Montevideo.");
 });
 
 botonInput.addEventListener("click", () => {
-  if (inputPasajeros.value == 0 || inputDias.value == 0 || precio == 0) {
+  if (inputPasajeros.value == 0 || inputDias.value == 0) {
     alert("Ingrese bien los datos");
+  } else if( precio <= 0) {
+    alert("Seleccione un destino")
   } else {
     let total = precio * inputPasajeros.value * inputDias.value * 1.21;
+    diasPasajeros();
+    localStorage.setItem("destino", destinoElegido)
+    localStorage.setItem("pasajeros", cantidadPasajeros )
+    localStorage.setItem("dias", cantidadDias)
     alert(`El total es $${total}`);
   }
 });

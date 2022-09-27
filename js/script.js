@@ -1,4 +1,4 @@
-//definicion de variables
+//Declaracion de Varaibles
 let pasajeross = document.getElementById("pasajeros");
 let destino = document.getElementById("destino");
 let dias = document.getElementById("spanDias");
@@ -17,7 +17,8 @@ let cantidadDias = 0;
 let cantidadPasajeros = 0;
 let precio = 0;
 
-//definicion de constantes
+
+//Declaracion de Constantes
 const amsterdam = {
   nombre: "Amsterdam",
   precio: 3500,
@@ -48,11 +49,15 @@ const valoresUtilizables = {
   descuentoSocio: 0.2,
 };
 
+const objDestinos = [amsterdam, boraBora, buenosAires, cancun, hawai, montevideo];
+
+//Declaracion de funciones
 function diasPasajeros(){
   pasajeross.innerText = inputPasajeros.value;
   dias.innerText = inputDias.value;
 }
 
+//Arrow Functions
 btnLimpiar.addEventListener("click", () => {
   pasajeross.innerHTML = "";
   destino.innerHTML = "";
@@ -64,8 +69,8 @@ btnLimpiar.addEventListener("click", () => {
 });
 
 amsterdamBtn.addEventListener("click", () => {
-  precio = amsterdam.precio;
-  destino.innerText = amsterdam.nombre;
+  precio = objDestinos[0].precio;
+  destino.innerText = objDestinos[0].nombre;
   diasPasajeros();
   destinoElegido = amsterdam.nombre;
   cantidadDias = inputDias.value;
@@ -74,8 +79,8 @@ amsterdamBtn.addEventListener("click", () => {
 });
 
 boraBoraBtn.addEventListener("click", () => {
-  precio = boraBora.precio;
-  destino.innerText = boraBora.nombre;
+  precio = objDestinos[1].precio;
+  destino.innerText = objDestinos[1].nombre;
   diasPasajeros();
   destinoElegido = boraBora.nombre;
   cantidadDias = inputDias.value;
@@ -84,8 +89,8 @@ boraBoraBtn.addEventListener("click", () => {
 });
 
 buenosAiresBtn.addEventListener("click", () => {
-  precio = buenosAires.precio;
-  destino.innerText = buenosAires.nombre;
+  precio = objDestinos[2].precio;
+  destino.innerText = objDestinos[2].nombre;
   diasPasajeros();
   destinoElegido = buenosAires.nombre;
   cantidadDias = inputDias.value;
@@ -94,8 +99,8 @@ buenosAiresBtn.addEventListener("click", () => {
 });
 
 cancunBtn.addEventListener("click", () => {
-  precio = cancun.precio;
-  destino.innerText = cancun.nombre;
+  precio = objDestinos[3].precio;
+  destino.innerText = objDestinos[3].nombre;
   diasPasajeros();
   destinoElegido = cancun.nombre;
   cantidadDias = inputDias.value;
@@ -104,8 +109,8 @@ cancunBtn.addEventListener("click", () => {
 });
 
 hawaiBtn.addEventListener("click", () => {
-  precio = hawai.precio;
-  destino.innerText = hawai.nombre;
+  precio = objDestinos[4].precio;
+  destino.innerText = objDestinos[4].nombre;
   diasPasajeros();
   destinoElegido = hawai.nombre;
   cantidadDias = inputDias.value;
@@ -114,8 +119,8 @@ hawaiBtn.addEventListener("click", () => {
 });
 
 montevideoBtn.addEventListener("click", () => {
-  precio = montevideo.precio;
-  destino.innerText = montevideo.nombre;
+  precio = objDestinos[5].precio;
+  destino.innerText = objDestinos[5].nombre;
   diasPasajeros();
   destinoElegido = montevideo.nombre;
   cantidadDias = inputDias.value;
@@ -124,16 +129,15 @@ montevideoBtn.addEventListener("click", () => {
 });
 
 botonInput.addEventListener("click", () => {
-  if (inputPasajeros.value <= 0 || inputDias.value <= 0) {
+  ( precio <= 0) ? alert("Seleccione un destino"): console.warn(`El destino esta seleccionado correctamente`);
+  if(inputPasajeros.value <= 0 || inputDias.value <= 0){ 
     alert("Ingrese bien los datos");
-  } else if( precio <= 0) {
-    alert("Seleccione un destino")
-  } else {
+} else{
     let total = precio * inputPasajeros.value * inputDias.value * 1.21;
     diasPasajeros();
-    localStorage.setItem("destino", destinoElegido)
-    localStorage.setItem("pasajeros", cantidadPasajeros )
-    localStorage.setItem("dias", cantidadDias)
+    localStorage.setItem("destino", destinoElegido);
+    localStorage.setItem("pasajeros", cantidadPasajeros);
+    localStorage.setItem("dias", cantidadDias);
     alert(`El total es $${total}`);
   }
 });

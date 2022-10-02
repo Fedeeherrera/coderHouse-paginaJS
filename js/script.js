@@ -66,6 +66,10 @@ btnLimpiar.addEventListener("click", () => {
   inputDias.value = "";
   precio = 0;
   localStorage.clear();
+  Swal.fire({
+    icon: 'error',
+    title: 'El carrito ahora esta vacio'
+  })
 });
 
 amsterdamBtn.addEventListener("click", () => {
@@ -75,7 +79,13 @@ amsterdamBtn.addEventListener("click", () => {
   destinoElegido = amsterdam.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value;
-  alert("Ha seleccionado Amsterdam.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO AMSTERDAM',
+    imageUrl: './../images/amsterdamPaisesBajos.jpg',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 boraBoraBtn.addEventListener("click", () => {
@@ -85,7 +95,13 @@ boraBoraBtn.addEventListener("click", () => {
   destinoElegido = boraBora.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value; 
-  alert("Ha seleccionado Bora Bora.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO BORA BORA',
+    imageUrl: './../images/borabora.jpg',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 buenosAiresBtn.addEventListener("click", () => {
@@ -95,7 +111,13 @@ buenosAiresBtn.addEventListener("click", () => {
   destinoElegido = buenosAires.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value;
-  alert("Ha seleccionado Buenos Aires.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO BORA BORA',
+    imageUrl: './../images/buenosAiresARG.png',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 cancunBtn.addEventListener("click", () => {
@@ -105,7 +127,13 @@ cancunBtn.addEventListener("click", () => {
   destinoElegido = cancun.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value;
-  alert("Ha seleccionado Cancun.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO BORA BORA',
+    imageUrl: './../images/cancunMexico.jpg',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 hawaiBtn.addEventListener("click", () => {
@@ -115,7 +143,13 @@ hawaiBtn.addEventListener("click", () => {
   destinoElegido = hawai.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value;
-  alert("Ha seleccionado Hawai.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO BORA BORA',
+    imageUrl: './../images/hawaiEEUU.jpg',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 montevideoBtn.addEventListener("click", () => {
@@ -125,12 +159,18 @@ montevideoBtn.addEventListener("click", () => {
   destinoElegido = montevideo.nombre;
   cantidadDias = inputDias.value;
   cantidadPasajeros = inputPasajeros.value;
-  alert("Ha seleccionado Montevideo.");
+  Swal.fire({
+    title: 'HAZ SELECCIONADO BORA BORA',
+    imageUrl: './../images/montevideoUruguay.jpg',
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
 });
 
 botonInput.addEventListener("click", () => {
   ( precio <= 0) ? alert("Seleccione un destino"): console.warn(`El destino esta seleccionado correctamente`);
-  if(inputPasajeros.value <= 0 || inputDias.value <= 0){ 
+  if(inputPasajeros.value <= 0 || inputDias.value <= 0 || precio <= 0){ 
     alert("Ingrese bien los datos");
 } else{
     let total = precio * inputPasajeros.value * inputDias.value * 1.21;
@@ -138,6 +178,25 @@ botonInput.addEventListener("click", () => {
     localStorage.setItem("destino", destinoElegido);
     localStorage.setItem("pasajeros", cantidadPasajeros);
     localStorage.setItem("dias", cantidadDias);
-    alert(`El total es $${total}`);
+    Swal.fire({
+      icon: 'info',
+      title: `VALOR DEL VIAJE $${total}`,
+      text: 'DISFRUTA',
+    })
   }
 });
+
+let listaPrueba = document.getElementById("listaPrueba")
+
+fetch("./destinos.json")
+.then(response => response.json)
+.then(data => {
+  data.forEach(item => {
+    let li = data.createElement("li");
+    li.innerHTML = `
+    <h1>Nombre: ${item.nombre}</h1>
+    <h2>Precio: ${item.precio}</h2>
+    <h3>Imagen: ${item.imagen}</h3>`;
+    listaPrueba.append(li);
+  });
+})

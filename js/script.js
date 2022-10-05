@@ -57,6 +57,24 @@ function diasPasajeros(){
   dias.innerText = inputDias.value;
 }
 
+function alerta(ciudad, ruta){
+  Swal.fire({
+    title: `HAZ SELECCIONADO ${ciudad}`,
+    imageUrl: (`${ruta}`),
+    imageWidth: 450,
+    imageHeight: 300,
+    imageAlt: 'Custom image',
+  })
+}
+
+function ejecucion (i, ciudad) {
+  precio = objDestinos[i].precio;
+  destino.innerText = objDestinos[i].nombre;
+  destinoElegido = ciudad.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
+}
+
 //Arrow Functions
 btnLimpiar.addEventListener("click", () => {
   pasajeross.innerHTML = "";
@@ -73,99 +91,39 @@ btnLimpiar.addEventListener("click", () => {
 });
 
 amsterdamBtn.addEventListener("click", () => {
-  precio = objDestinos[0].precio;
-  destino.innerText = objDestinos[0].nombre;
+  ejecucion (0, "AMSTERDAM")
   diasPasajeros();
-  destinoElegido = amsterdam.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
-  Swal.fire({
-    title: 'HAZ SELECCIONADO AMSTERDAM',
-    imageUrl: './../images/amsterdamPaisesBajos.jpg',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("AMSTERDAM", "./../images/amsterdamPaisesBajos.jpg")
 });
 
 boraBoraBtn.addEventListener("click", () => {
-  precio = objDestinos[1].precio;
-  destino.innerText = objDestinos[1].nombre;
+  ejecucion (1, "BORA BORA")
   diasPasajeros();
-  destinoElegido = boraBora.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value; 
-  Swal.fire({
-    title: 'HAZ SELECCIONADO BORA BORA',
-    imageUrl: './../images/borabora.jpg',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("BORA BORA", './../images/borabora.jpg')
 });
 
 buenosAiresBtn.addEventListener("click", () => {
-  precio = objDestinos[2].precio;
-  destino.innerText = objDestinos[2].nombre;
+  ejecucion (2, "BUENOS AIRES")
   diasPasajeros();
-  destinoElegido = buenosAires.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
-  Swal.fire({
-    title: 'HAZ SELECCIONADO BORA BORA',
-    imageUrl: './../images/buenosAiresARG.png',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("BUENOS AIRES", './../images/buenosAiresARG.png')
 });
 
 cancunBtn.addEventListener("click", () => {
-  precio = objDestinos[3].precio;
-  destino.innerText = objDestinos[3].nombre;
+  ejecucion (3, "CANCUN")
   diasPasajeros();
-  destinoElegido = cancun.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
-  Swal.fire({
-    title: 'HAZ SELECCIONADO BORA BORA',
-    imageUrl: './../images/cancunMexico.jpg',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("CANCUN", './../images/cancunMexico.jpg');
 });
 
 hawaiBtn.addEventListener("click", () => {
-  precio = objDestinos[4].precio;
-  destino.innerText = objDestinos[4].nombre;
+  ejecucion (4, "HAWAI")
   diasPasajeros();
-  destinoElegido = hawai.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
-  Swal.fire({
-    title: 'HAZ SELECCIONADO BORA BORA',
-    imageUrl: './../images/hawaiEEUU.jpg',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("HAWAI", './../images/hawaiEEUU.jpg');
 });
 
 montevideoBtn.addEventListener("click", () => {
-  precio = objDestinos[5].precio;
-  destino.innerText = objDestinos[5].nombre;
+  ejecucion (5, "MONTEVIDEO")
   diasPasajeros();
-  destinoElegido = montevideo.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
-  Swal.fire({
-    title: 'HAZ SELECCIONADO BORA BORA',
-    imageUrl: './../images/montevideoUruguay.jpg',
-    imageWidth: 450,
-    imageHeight: 300,
-    imageAlt: 'Custom image',
-  })
+  alerta("MONTEVIDEO", './../images/montevideoUruguay.jpg');
 });
 
 botonInput.addEventListener("click", () => {

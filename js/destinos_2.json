@@ -1,0 +1,7 @@
+[
+    {"nombre": "Cancun", "precio": 3700, "imagen": "../images/cancunMexico.jpg"},
+
+    {"nombre": "Hawai","precio": 4200, "imagen": "../images/hawaiEEUU.jpg"},
+
+    {"nombre": "Montevideo","precio": 4700, "imagen": "../images/montevideoUruguay.jpg"}
+]

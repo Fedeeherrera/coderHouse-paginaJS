@@ -57,6 +57,17 @@ function diasPasajeros(){
   dias.innerText = inputDias.value;
 }
 
+
+
+function ejecucion (i, ciudad) {
+  precio = objDestinos[i].precio;
+  destino.innerText = objDestinos[i].nombre;
+  destinoElegido = ciudad.nombre;
+  cantidadDias = inputDias.value;
+  cantidadPasajeros = inputPasajeros.value;
+}
+
+//Optimice la muestra de alertas
 function alerta(ciudad, ruta){
   Swal.fire({
     title: `HAZ SELECCIONADO ${ciudad}`,
@@ -65,14 +76,6 @@ function alerta(ciudad, ruta){
     imageHeight: 300,
     imageAlt: 'Custom image',
   })
-}
-
-function ejecucion (i, ciudad) {
-  precio = objDestinos[i].precio;
-  destino.innerText = objDestinos[i].nombre;
-  destinoElegido = ciudad.nombre;
-  cantidadDias = inputDias.value;
-  cantidadPasajeros = inputPasajeros.value;
 }
 
 //Arrow Functions
@@ -144,17 +147,27 @@ botonInput.addEventListener("click", () => {
   }
 });
 
-let listaPrueba = document.getElementById("listaPrueba")
+let listaDinamica = document.getElementById("listaDinamica")
 
-fetch("./destinos.json")
-.then(response => response.json)
+fetch('../js/destinos_1.json')
+.then(response => response.json())
 .then(data => {
   data.forEach(item => {
-    let li = data.createElement("li");
+    let li = document.createElement("li");
     li.innerHTML = `
-    <h1>Nombre: ${item.nombre}</h1>
-    <h2>Precio: ${item.precio}</h2>
-    <h3>Imagen: ${item.imagen}</h3>`;
-    listaPrueba.append(li);
+    <img src=  '${item.imagen}' />`;
+    listaDinamica.append(li);
+  });
+})
+
+let listaDinamica__2 = document.getElementById("listaDinamica__2")
+fetch('../js/destinos_2.json')
+.then(response => response.json())
+.then(data => {
+  data.forEach(item => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+    <img src=  '${item.imagen}' />`;
+    listaDinamica__2.append(li);
   });
 })

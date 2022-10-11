@@ -1,0 +1,12 @@
+[
+
+    {"nombre": "Amsterdam", "precio": 3500, "imagen": "../images/amsterdamPaisesBajos.jpg"},
+
+    {"nombre": "Bora Bora", "precio": 3000, "imagen": "../images/borabora.jpg"},
+
+    {"nombre": "Buenos Aires", "precio": 2500, "imagen": "../images/buenosAiresARG.png"}
+
+
+
+]
+

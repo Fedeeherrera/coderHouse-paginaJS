@@ -140,9 +140,10 @@ montevideoBtn.addEventListener("click", () => {
 });
 
 botonInput.addEventListener("click", () => {
-  let totStorage = localStorage.getItem("total")
-  let comparador = localStorage.getItem("destino")
-  if(comparador == destino.innerHTML) {
+  let totStorage = localStorage.getItem("total");
+  let comparadorDestino = localStorage.getItem("destino");
+  let comparadorDias = localStorage.getItem("dias")
+  if(comparadorDestino === destino.innerHTML && comparadorDias === dias.innerHTML) {
     Swal.fire({
       icon: "info",
       title: `VALOR DEL VIAJE $${totStorage}`,
